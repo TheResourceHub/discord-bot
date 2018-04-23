@@ -27,7 +27,7 @@ class TRHDatabase {
 	}
 	
 	getAbout(id, callback) {
-		this.connection.query("SELECT about FROM rt_about WHERE user_id = '" + id + "'", null, (error, results, fields) => {
+		this.connection.query("SELECT about FROM rt_about WHERE user_id = ?", [id], (error, results, fields) => {
 			const result = results[0];
 			if (!result) {
 				callback("No about specified for this user.");
@@ -38,7 +38,7 @@ class TRHDatabase {
 	}
 
 	setAbout(id, message) {
-		this.connection.query("INSERT INTO rt_about (user_id, about) VALUES('" + id + "', ?) ON DUPLICATE KEY UPDATE about = ?", [message, message]);
+		this.connection.query("INSERT INTO rt_about (user_id, about) VALUES(?, ?) ON DUPLICATE KEY UPDATE about = ?", [id, message, message]);
 	}
 }
 
