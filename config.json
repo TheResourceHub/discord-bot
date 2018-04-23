@@ -1,0 +1,11 @@
+{
+	"bot": {
+		"token": ""
+	},
+	"database": {
+		"host": "localhost",
+		"user": "root",
+		"password": "password",
+		"database": "trh"
+	}
+}
