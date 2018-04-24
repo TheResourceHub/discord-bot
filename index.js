@@ -14,17 +14,17 @@ String.prototype.contains = String.prototype.includes;
 client.login(config.bot.token);
 
 client.on("ready", () => {
-    log("Client logged in.");
-    client.user.setGame("Developer: Dylan#4049");
+	log("Client logged in.");
+	client.user.setGame("Developer: Dylan#4049");
 });
 
 client.on("message", message => {
-    messagehandler.handle(message);
+	messagehandler.handle(message);
 });
 
 client.on("guildMemberAdd", member => {
 	const channel = member.guild.channels.find("name", "welcome");
 	const introChannel = member.guild.channels.find("name", "introductions");
 	const claimChannel = member.guild.channels.find("name", "roles-claim");
-    channel.send("Welcome <@" + member.id + "> to **The Resource Hub**! Please introduce yourself in <#" + introChannel.id + "> and claim your roles in <#" + claimChannel.id + ">!");
+	channel.send("Welcome <@" + member.id + "> to **The Resource Hub**! Please introduce yourself in <#" + introChannel.id + "> and claim your roles in <#" + claimChannel.id + ">!");
 });
