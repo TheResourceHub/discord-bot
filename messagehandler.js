@@ -72,7 +72,7 @@ function handle(message) {
 			break;
 		default: break;
 	}
-};
+}
 
 module.exports = {
 	init,

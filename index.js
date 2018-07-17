@@ -28,3 +28,21 @@ client.on("guildMemberAdd", member => {
 	const claimChannel = member.guild.channels.find("name", "roles-claim");
 	channel.send("Welcome <@" + member.id + "> to **The Resource Hub**! Please introduce yourself in <#" + introChannel.id + "> and claim your roles in <#" + claimChannel.id + ">!");
 });
+
+const logDeletion = message => {
+	const author = message.author;
+	const embed = new Discord.RichEmbed()
+		.setAuthor(author.username + "#" + author.discriminator, author.avatarURL)
+		.setColor("0xFF0000")
+		.setFooter("Developer: Dylan#4049")
+		.setDescription("Message deleted.")
+		.addField("Channel:", message.channel.toString())
+		.addField("Message:", message.content)
+		.setTimestamp(new Date());
+
+	message.guild.channels.find("name", "server-log").send(embed);
+}
+
+client.on("messageDelete", logDeletion);
+
+client.on("messageDeleteBulk", messages => message.values().forEach(logDeletion));

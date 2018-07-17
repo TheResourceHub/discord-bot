@@ -33,7 +33,7 @@ class TRHDatabase {
 				callback("No about specified for this user.");
 				return;
 			}
-			callback(result["about"]);
+			callback(result.about);
 		});
 	}
 
