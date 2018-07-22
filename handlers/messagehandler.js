@@ -43,7 +43,6 @@ registerCommand("about", async message => {
 	const embed = new Discord.RichEmbed()
 		.setAuthor(user.username + "#" + user.discriminator, user.avatarURL)
 		.setColor(Utils.getMaxRole(guildMember).color)
-		.setTitle(user.username + "'s About Message")
 		.addField("Last Updated Time", about.date ? about.date : "A while ago.")
 		.addField("About Message", about.about)
 		.setTimestamp(about.date)
