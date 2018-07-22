@@ -1,6 +1,7 @@
 {
 	"bot": {
-		"token": ""
+		"token": "",
+		"game": "Developer: Dylan#4049"
 	},
 	"database": {
 		"host": "localhost",
